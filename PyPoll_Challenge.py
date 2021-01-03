@@ -78,7 +78,7 @@ with open(file_to_load) as election_data:
 
         # 4a: Write an if statement that checks that the
         # county does not match any existing county in the county list.
-        if county_name not in candidate_options:
+        if county_name not in counties:
 
             # 4b: Add the existing county to the list of counties.
             counties.append(county_name)
@@ -112,16 +112,16 @@ with open(file_to_save, "w") as txt_file:
         vote_count = county_votes.get(county_name)
 
         # 6c: Calculate the percentage of votes for the county.
-        vote_percentage = float(vote_count)/float(total_votes)*100
+        vote_percent = float(vote_count)/float(total_votes)*100
 
          # 6d: Print the county results to the terminal.
         county_results = (
-             f'{county_name}: {vote_percentage:.1f}% ({vote_count:,})\n')
+             f'{county_name}: {vote_percent:.1f}% ({vote_count:,})\n')
          # 6e: Save the county votes to a text file.
         txt.write(county_results)
          # 6f: Write an if statement to determine the winning county and get its vote count.
         if (vote_count > voter_turnout):
-            voter_turnout = vote_count
+            print (voter_turnout = vote_count
             largest_county = county_name
 
     # 7: Print the county with the largest turnout to the terminal.
